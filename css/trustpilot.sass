@@ -1,0 +1,267 @@
+//colors
+$white: #fff;
+$color_mariner_approx: #307ecc;
+$color_celeste_approx: #ccc;
+$color_black_haze_approx: #f7f7f7;
+$color_gallery_approx: #eee;
+$color_alto_approx: #ddd;
+$color_danube_approx: #669fc7;
+$color_zircon_approx: #f4f9fd;
+$color_botticelli_approx: #c9d6e5;
+$color_mercury_approx: #e4e6e9;
+$color_tuatara_approx: #393939;
+
+//fonts
+$font_0: Helvetica Neue;
+$font_1: Arial;
+$font_2: Helvetica;
+$font_3: sans-serif;
+$font_4: Open Sans;
+
+//@extend-elements
+//original selectors
+//.widget-header::before, .widget-header::after
+%extend_1 {
+	content: "";
+	display: table;
+	line-height: 0;
+}
+
+//original selectors
+//.widget-toolbar > a, .widget-toolbar > .widget-menu > a
+%extend_2 {
+	display: inline-block;
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0 1px;
+	padding: 0;
+}
+
+
+.main-container::before {
+	background-color: $white;
+	bottom: 0;
+	content: "";
+	display: block;
+	max-width: inherit;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -2;
+}
+.main-content-inner {
+	float: left;
+	width: 100%;
+}
+.widget-header::before {
+	@extend %extend_1;
+}
+.widget-header::after {
+	@extend %extend_1;
+	clear: right;
+}
+.widget-color-blue {
+	border-color: $color_mariner_approx;
+	> .widget-header {
+		background: $color_mariner_approx none repeat scroll 0 0;
+		border-color: $color_mariner_approx;
+	}
+}
+.page-content {
+	background-color: $white;
+	margin: 0;
+	padding: 8px 20px 24px;
+	position: relative;
+	> .row {
+		.col-xs-12 {
+			float: left;
+			max-width: 100%;
+		}
+		.col-sm-12 {
+			float: left;
+			max-width: 100%;
+		}
+		.col-md-12 {
+			float: left;
+			max-width: 100%;
+		}
+		.col-lg-12 {
+			float: left;
+			max-width: 100%;
+		}
+	}
+}
+.widget-box {
+	border: 1px solid $color_celeste_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none;
+	margin: 3px 0;
+	padding: 0;
+}
+.widget-header {
+	background: $color_black_haze_approx linear-gradient(to bottom, $white 0, $color_gallery_approx 100%) repeat-x scroll 0 0;
+	border-bottom: 1px solid $color_alto_approx;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: content-box;
+	color: $color_danube_approx;
+	min-height: 38px;
+	padding-left: 12px;
+	position: relative;
+	> .widget-title {
+		display: inline;
+		line-height: 36px;
+		margin: 5px;
+		padding: 5px;
+	}
+}
+h6 {
+	font-family: $font_0, $font_1, $font_2, $font_3;
+	font-size: 13px;
+	font-weight: 400;
+}
+.imgstyle {
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0 5px;
+	max-height: 25px;
+	margin-left: 0;
+}
+.widget-toolbar {
+	display: inline-block;
+	float: right;
+	line-height: 37px;
+	padding: 0 10px;
+	position: relative;
+	> {
+		a {
+			@extend %extend_2;
+		}
+		.widget-menu > a {
+			@extend %extend_2;
+		}
+	}
+}
+.white {
+	color: $white !important;
+}
+.widget-body {
+	background-color: $white;
+}
+.widget-main {
+	padding: 12px;
+	max-height: 300px;
+	overflow-x: hidden;
+	&.padding-4 {
+		padding: 4px;
+	}
+}
+.widget-toolbar::before {
+	border-color: $color_alto_approx;
+	//Instead of the line below you could use @include border-image($value)
+	border-image: none;
+	border-style: solid;
+	border-width: 0 1px 0 0;
+	bottom: 3px;
+	content: "";
+	display: inline-block;
+	left: -1px;
+	position: absolute;
+	top: 3px;
+}
+.main-content::before {
+	content: " ";
+	display: table;
+}
+.main-content::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+*::before {
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+}
+*::after {
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+}
+.main-content {
+	margin-left: 0;
+	min-height: 100%;
+	padding: 0;
+}
+.rating {
+	text-align: right;
+}
+.padding-5 {
+	padding: 5px;
+}
+.profile-activity {
+	margin: 15px;
+	overflow: hidden;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 0 25px 1px $color_alto_approx;
+	background: $white none repeat scroll 0 0;
+	padding: 10px;
+	.imgstyleuser {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0 10px;
+		max-height: 40px;
+		border: 2px solid $color_botticelli_approx;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		margin-left: 0;
+		margin-right: 10px;
+		max-width: 100px;
+		padding: 1px;
+	}
+	.imgstyleusergrid {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0 15px;
+		max-height: 60px;
+		border: 2px solid $color_botticelli_approx;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		margin-left: 0;
+		margin-right: 10px;
+		max-width: 100px;
+		padding: 1px;
+	}
+	.imgstyle {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0 5px;
+		max-height: 20px;
+		border: 2px solid $color_botticelli_approx;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		margin-left: 0;
+		margin-right: 10px;
+		max-width: 100px;
+		padding: 1px;
+	}
+}
+.clockImage {
+	max-height: 14px;
+	width: 14px;
+}
+body {
+	background-color: $color_mercury_approx;
+	color: $color_tuatara_approx;
+	font-family: $font_4;
+	font-size: 15px;
+	line-height: 1.5;
+	min-height: 100%;
+	padding-bottom: 0;
+}
+html {
+	min-height: 100%;
+	position: relative;
+}
+.widget-box[class*="widget-color-"] > .widget-header {
+	color: $white;
+}
+[class*="widget-color-"] > .widget-header > .widget-toolbar::before {
+	border-color: $color_gallery_approx;
+}
+.userProfile :hover {
+	background: $color_zircon_approx none repeat scroll 0 0;
+}

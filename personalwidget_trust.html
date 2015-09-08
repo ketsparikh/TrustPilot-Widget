@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Trust Pilot Widget</title>
+		<link href="css/trustpilotfinal.css" rel="stylesheet">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+	</head>
+
+	<body class="no-skin">
+
+		<div class="main-container" id="main-container">
+
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="page-content">
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="row" ng-app="switchableGrid" ng-controller="SwitchableGridController">
+									<div class="col-sm-8 widget-container-col">
+										<div class="widget-box widget-color-blue">
+											<div class="widget-header">
+												<h4 class="widget-title">
+													Trust Pilot Widget
+												</h4>
+												<a ng-show="layout == 'grid'" href="#" class="white pull-right padding-5" ng-class="{active: layout == 'list'}" ng-click="layout = 'list'"> 
+													<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+												</a>
+												<a ng-show="layout == 'list'" href="#" class="white pull-right padding-5" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'">
+													<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+												</a>
+											</div>
+
+											<div class="widget-body">
+												<div class="rating padding-5">
+														<em>
+														Average Rating is <strong>{{avgRating}}</strong> from <strong>{{totalReviews}}</strong> reviews. &nbsp;&nbsp;
+														</em>
+														<img class="imgstyle" ng-src="static-images/3-stars-260x48.png"/>
+												</div>
+												<div class="widget-main padding-4 scrollable" data-size="300">
+													<div class="content">
+														<div class="row">	
+															<div ng-show="layout == 'grid'">
+																<div class="col-md-6 userProfile" ng-repeat="p in userData"> 
+																	<div class="profile-activity">
+																		<div>
+																			<img class="imgstyleuser" ng-src="static-images/{{p.imageName}}.png" class="pull-left"/>
+																				<a href="#" class="user"> <strong>{{p.firstName}} </strong></a>
+																			<div class="pull-right">
+																				<img class="clockImage" src="static-images/clock.png" />
+																				<em>{{p.time}}</em>
+																				<img class="imgstyle" ng-src="static-images/{{p.starRating}}-stars-260x48.png" />
+																			</div>
+																			<h5>{{p.reviewTitle}}</h5>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div ng-show="layout == 'list'">
+																<div class="userProfile" ng-repeat="p in userData"> 
+																		<div class="profile-activity">
+																			<div class="col-md-1 align-center">
+																				<img class="imgstyleusergrid" ng-src="static-images/{{p.imageName}}.png" class="pull-left"/>
+																				<p><a href="#" class="user"> <strong class="align-center">{{p.fullName}} </strong></a></p>
+																				
+																			</div>
+																			<div class="col-md-11">
+																				<div>
+																					<div class="align-center pull-right">
+																							<img class="clockImage" src="static-images/clock.png" />
+																							<em>{{p.time}}</em>
+																						<img class="imgstyle" ng-src="static-images/{{p.starRating}}-stars-260x48.png" />
+																					</div>
+																					<strong>{{p.reviewTitle}}</strong>
+																					<p>{{p.reviewBody}}</p>
+																				</div>
+																			</div>
+																			
+																		</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+	<script src="script.js"></script>
+	</body>
+</html>
